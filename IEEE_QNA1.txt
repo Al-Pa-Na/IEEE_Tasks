@@ -1,0 +1,78 @@
+1)What is the difference between em and rem units in CSS?
+
+em is a unit that basically looks up to its parent element for guidance. Whatever size the parent is, em scales itself based on that. So, if you set something to 2em, it will be twice the size of the parent. This can be great if you want things to adjust based on where they are.
+
+rem is the independent one. It doesn’t care about its parent element’s size. Instead, it always looks at the root element, usually the <html> tag, which defines the base size for the entire page. If you say something should be 2rem, it will always be twice the base size, no matter where it is in the document.
+
+
+2)Explain the concept of closures in JavaScript. Provide an example where a closure might be useful.(With code)
+
+Closures allow an inner function to access variables from its outer function, even after the outer function has finished executing.
+function createCounter() {
+  let count = 0;
+  return function() {
+    return ++count;
+  };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+
+Closures are useful when you need to preserve state, like the count variable here, without exposing it globally.
+
+
+
+3)What are semantic HTML tags?
+
+Semantic tags refers to the use of specific tags like <header>, <footer>, <nav>, <article>, <section>, etc., to provide clearer structure and meaning to web content.
+
+4)How would you create a responsive design without using a CSS framework like Bootstrap?(WRITE THE CODE)
+
+One can use CSS media queries as they allow allow you to apply different styles based on the screen size or other device characteristics.
+HTML code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Responsiveness</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container"></div>
+</body>
+</html>
+
+CSS code:
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: radial-gradient(circle, #ffcc00, #ff6600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 200px;
+    width: 50vw; 
+    max-width: 500px; 
+    background-color: #333;
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        width: 80vw;
+    }
+}
+
+5)What is the purpose of the srcset attribute in the <img> tag?
+The srcset attribute specifies the URL of the image to use in different situations.
+This attribute is required when <source> is used in <picture>.
